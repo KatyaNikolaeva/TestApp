@@ -1,0 +1,34 @@
+/* 
+  en.strings
+  GBKSoftTestApp
+
+  Created by Kateryna on 29.02.2020.
+  Copyright © 2020 Kateryna. All rights reserved.
+*/
+
+// MARK: - Common
+save = "Save";
+ok = "Ok";
+cancel = "Cancel";
+error.with.google.auth = "Something went wrong, please try again later";
+
+// MARK: - Login
+login.google-button.title = "Login with Google";
+
+//MARK: - List
+
+list.title = "List";
+list.empty.title = "There is no point yet";
+
+//MARK: - Map
+
+map.title = "Map";
+map.alert.textfield.title = "Enter point name";
+map.alert.title = "Enter point name";
+map.alert.description = "Enter a name for the point on the map to save it to the database";
+
+//MARK: - Profile
+
+profile.title = "Profile";
+profile.logout-button.title = "Logout";
+
