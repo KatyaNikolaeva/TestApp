@@ -9,12 +9,14 @@
 import UIKit
 import GoogleSignIn
 
-final class Coordinator: Coordinator.Routes {
+typealias CoordinatorRoutesRoutes = LoginRoute & TabBarRoute
+
+final class Coordinator: CoordinatorRoutesRoutes {
     
     static let shared = Coordinator()
     private init() {}
     
-    typealias Routes = LoginRoute & TabBarRoute
+    
     private weak var window: UIWindow?
     
     func setWindow(_ window: UIWindow) {

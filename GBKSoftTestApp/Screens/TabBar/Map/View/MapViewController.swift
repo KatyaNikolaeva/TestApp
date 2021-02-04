@@ -10,11 +10,13 @@ import UIKit
 import GoogleMaps
 import Firebase
 import CodableFirebase
+import GoogleMapsUtils
 
 final class MapViewController: UIViewController {
 
     private var mapView: GMSMapView?
     private var locationManager = CLLocationManager()
+    private var clusterManager: GMUClusterManager?
     
     var viewModel: MapViewModelProtocol!
     private var mapPoints = [Point]()
@@ -61,6 +63,7 @@ private extension MapViewController {
         mapView?.settings.myLocationButton = true
         mapView?.padding = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 30)
         setupLocationManager()
+        initializeClusterItems()
     }
     
     func setupLocationManager() {
@@ -70,13 +73,17 @@ private extension MapViewController {
     
     func setupUserMarker(points: [Point]) {
         mapView?.clear()
+        var index = 0
         for point in points {
             let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
+            let coordinate = CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
+            marker.position = coordinate
             marker.title = point.name
             marker.map = mapView
+            marker.userData = point
             checkSelectedPoint(point: point, marker: marker)
-            marker.icon = UIImage(named: "icons8-heart-64")
+            self.generatePOIItems(String(format: "%d", index), position: coordinate, icon: UIImage(named: "heart-64"))
+            index += 1
         }
     }
     
@@ -86,6 +93,45 @@ private extension MapViewController {
             let camera = GMSCameraPosition.camera(withLatitude: point.latitude, longitude: point.longitude, zoom: 17.0)
             mapView?.animate(to: camera)
         }
+    }
+    
+    //MARK: - Init cluster items
+    func initializeClusterItems() {
+        guard let mapView = mapView else { return }
+        let iconGenerator = GMUDefaultClusterIconGenerator()
+        let algorithm = GMUGridBasedClusterAlgorithm()
+        let renderer = GMUDefaultClusterRenderer(mapView: mapView, clusterIconGenerator: iconGenerator)
+        self.clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm, renderer: renderer)
+        var markers = [GMUClusterItem]()
+        mapPoints.forEach({ point in
+    
+            let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude))
+            if let clusterItem = marker as? GMUClusterItem {
+                markers.append(clusterItem)
+            }
+        })
+        self.clusterManager?.add(markers)
+        self.clusterManager?.cluster()
+        self.clusterManager?.setDelegate(self, mapDelegate: self)
+    }
+}
+
+
+extension MapViewController: GMUClusterManagerDelegate {
+    
+    func clusterManager(_ clusterManager: GMUClusterManager, didTap cluster: GMUCluster) -> Bool {
+        guard let mapView = mapView else { return false }
+        let newCamera = GMSCameraPosition.camera(withTarget: cluster.position,
+        zoom: mapView.camera.zoom + 1)
+        let update = GMSCameraUpdate.setCamera(newCamera)
+        mapView.moveCamera(update)
+        return false
+    }
+    
+    func generatePOIItems(_ accessibilityLabel: String, position: CLLocationCoordinate2D, icon: UIImage?) {
+        guard let icon = icon else { return }
+        let item = POIItem(position: position, name: accessibilityLabel, icon: icon)
+        self.clusterManager?.add(item)
     }
 }
 

@@ -50,6 +50,22 @@ PODS:
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.0)
     - GTMSessionFetcher/Core (~> 1.1)
+  - Google-Maps-iOS-Utils (3.0.2):
+    - Google-Maps-iOS-Utils/Clustering (= 3.0.2)
+    - Google-Maps-iOS-Utils/Geometry (= 3.0.2)
+    - Google-Maps-iOS-Utils/Heatmap (= 3.0.2)
+    - Google-Maps-iOS-Utils/QuadTree (= 3.0.2)
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/Clustering (3.0.2):
+    - Google-Maps-iOS-Utils/QuadTree
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/Geometry (3.0.2):
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/Heatmap (3.0.2):
+    - Google-Maps-iOS-Utils/QuadTree
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/QuadTree (3.0.2):
+    - GoogleMaps
   - GoogleAppMeasurement (6.3.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
@@ -111,6 +127,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - Google-Maps-iOS-Utils (from `https://github.com/googlemaps/google-maps-ios-utils`)
   - GoogleMaps
   - GooglePlaces
   - GoogleSignIn
@@ -143,6 +160,15 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
 
+EXTERNAL SOURCES:
+  Google-Maps-iOS-Utils:
+    :git: https://github.com/googlemaps/google-maps-ios-utils
+
+CHECKOUT OPTIONS:
+  Google-Maps-iOS-Utils:
+    :commit: cfda11df40d3f42ba68f4e8fbf6eafb3ca157404
+    :git: https://github.com/googlemaps/google-maps-ios-utils
+
 SPEC CHECKSUMS:
   AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
   CodableFirebase: 0bf201991eeec35eb9fcd987d271ea463cf34a80
@@ -155,6 +181,7 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 0144e0706a4761f1b0e8679572eba8095ddb59be
   FirebaseInstallations: 575cd32f2aec0feeb0e44f5d0110a09e5e60b47b
   FirebaseStorage: 6c5263796af3b1be82ed173598aade47535fe125
+  Google-Maps-iOS-Utils: bfc24e492f3a88a2dffec1b6e0a5bd86fc49486f
   GoogleAppMeasurement: 39ecba10918b21c83877d392246157f65db351cf
   GoogleDataTransport: 653963cf5be60fb59cf051e070f0836fdc305f81
   GoogleDataTransportCCTSupport: 84e4d4bbab642f2e9d83ee65d78aca2b5527d314
@@ -169,6 +196,6 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
 
-PODFILE CHECKSUM: b128715a0163435faaf5cdbebe1a9ea13ff0f3c9
+PODFILE CHECKSUM: 54cb5f9e762383aa4e8e967c3772ba87a581485b
 
-COCOAPODS: 1.9.0
+COCOAPODS: 1.8.4

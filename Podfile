@@ -9,5 +9,6 @@ target 'GBKSoftTestApp' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'CodableFirebase'
+  pod 'Google-Maps-iOS-Utils', :git => 'https://github.com/googlemaps/google-maps-ios-utils'
   
 end

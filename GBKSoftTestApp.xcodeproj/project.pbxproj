@@ -72,6 +72,7 @@
 		26F9A96C24048F9300CD920F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F9A96B24048F9300CD920F /* LoginViewController.swift */; };
 		26F9A9732404988800CD920F /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F9A9722404988800CD920F /* TabBar.storyboard */; };
 		26F9A97824049B5A00CD920F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F9A97724049B5A00CD920F /* TabBarController.swift */; };
+		26FFBE10241E7D0E00FAC1CF /* POIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FFBE0F241E7D0E00FAC1CF /* POIItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +142,7 @@
 		26F9A96B24048F9300CD920F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		26F9A9722404988800CD920F /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		26F9A97724049B5A00CD920F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		26FFBE0F241E7D0E00FAC1CF /* POIItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIItem.swift; sourceTree = "<group>"; };
 		79FC6E4E95F4B54130F01567 /* Pods_GBKSoftTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GBKSoftTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C9BC2EF44E11F9A7FBE99F5 /* Pods-GBKSoftTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GBKSoftTestApp.release.xcconfig"; path = "Target Support Files/Pods-GBKSoftTestApp/Pods-GBKSoftTestApp.release.xcconfig"; sourceTree = "<group>"; };
 		C277F993F5290D2B4722C47E /* Pods-GBKSoftTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GBKSoftTestApp.debug.xcconfig"; path = "Target Support Files/Pods-GBKSoftTestApp/Pods-GBKSoftTestApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 			children = (
 				269C2F33240AF12C0077FEC2 /* Action.swift */,
 				269C2F20240AB3FA0077FEC2 /* Point.swift */,
+				26FFBE0F241E7D0E00FAC1CF /* POIItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -783,6 +786,7 @@
 				269C2F0C240AA3830077FEC2 /* ProfileRoute.swift in Sources */,
 				269C2F32240AF0960077FEC2 /* AlertRoute.swift in Sources */,
 				269C2EF7240A99890077FEC2 /* Collection.swift in Sources */,
+				26FFBE10241E7D0E00FAC1CF /* POIItem.swift in Sources */,
 				269C2F26240AB6510077FEC2 /* ListCell.swift in Sources */,
 				269C2F1B240AB0AF0077FEC2 /* ListTableViewDataSource.swift in Sources */,
 				269C2F10240AA7C50077FEC2 /* MapViewController.swift in Sources */,
