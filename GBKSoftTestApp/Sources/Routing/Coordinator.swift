@@ -9,9 +9,9 @@
 import UIKit
 import GoogleSignIn
 
-typealias CoordinatorRoutesRoutes = LoginRoute & TabBarRoute
+typealias CoordinatorRoutes = LoginRoute & TabBarRoute
 
-final class Coordinator: CoordinatorRoutesRoutes {
+final class Coordinator: CoordinatorRoutes {
     
     static let shared = Coordinator()
     private init() {}
